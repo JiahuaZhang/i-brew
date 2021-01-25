@@ -3,7 +3,8 @@ import { Input, message, Popover, Tag } from 'antd';
 import { useRef, useState } from 'react';
 import { useSetRecoilState } from 'recoil';
 import { useEscape } from '../../../utils/hook/useEscape';
-import { Action, actionState, ActionType, SeedTagAction } from '../../../utils/state/action';
+import { Action, ActionType, SeedTagAction } from '../../../utils/state/action';
+import { historyTrack, withHistory } from '../../../utils/state/history';
 
 interface Props {
   tag: string;
@@ -12,7 +13,7 @@ interface Props {
 }
 
 export const SeedTag = (props: Props) => {
-  const setAction = useSetRecoilState(actionState);
+  const setHistoryTrack = useSetRecoilState(historyTrack);
   const [inputVisible, setInputVisible] = useState(false);
   const { tag, index, tags } = props;
   const [editedTag, setEditedTag] = useState(tag);
@@ -42,7 +43,7 @@ export const SeedTag = (props: Props) => {
 
               const seedTagAction = { type: 'edit', index, value: editedTag } as SeedTagAction;
               const action = { [ActionType.SeedTag]: seedTagAction } as Action;
-              setAction(action);
+              setHistoryTrack(withHistory(action));
             }
           }}
         />
@@ -61,7 +62,7 @@ export const SeedTag = (props: Props) => {
               value: '',
             } as SeedTagAction;
             const action = { [ActionType.SeedTag]: seedTagAction } as Action;
-            setAction(action);
+            setHistoryTrack(withHistory(action));
           }}>
           {tag.length > 7 ? (
             <Popover content={tag}>

@@ -1,11 +1,9 @@
 import SeedNode from './seed/SeedNode';
 
-const MainPanel = () => {
+export const MainPanel = () => {
   return (
     <div>
       <SeedNode />
     </div>
   );
 };
-
-export default MainPanel;

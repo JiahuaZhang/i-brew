@@ -34,6 +34,8 @@ export const actionState = selector<Action>({
           set(seedTagsState, seedTags.map((tag, i) => i === index ? value : tag))
           break;
       }
+    } else {
+      throw Error(`Not implement for action ${JSON.stringify(action)}`);
     }
   }
 })

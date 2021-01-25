@@ -3,7 +3,7 @@ import { UserOutlined } from '@ant-design/icons';
 import { User } from 'next-auth';
 import { signout } from 'next-auth/client';
 
-const Header = ({ user }: { user: User }) => {
+export const Header = ({ user }: { user: User }) => {
   let avatar = <Avatar size='large' icon={<UserOutlined />} />;
 
   if (user.image) {
@@ -27,5 +27,3 @@ const Header = ({ user }: { user: User }) => {
     </header>
   );
 };
-
-export default Header;

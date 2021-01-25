@@ -3,14 +3,15 @@ import { Input, message, Tag } from 'antd';
 import React, { useRef, useState } from 'react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { useEscape } from '../../../utils/hook/useEscape';
-import { Action, actionState, ActionType, SeedTagAction } from '../../../utils/state/action';
+import { Action, ActionType, SeedTagAction } from '../../../utils/state/action';
+import { historyTrack, withHistory } from '../../../utils/state/history';
 import { seedTagsState } from '../../../utils/state/seed';
 
 export const NewSeedTag = () => {
   const [newTag, setNewTag] = useState('');
   const [inputVisible, setInputVisible] = useState(false);
   const inputRef = useRef<HTMLElement>(null);
-  const setAction = useSetRecoilState(actionState);
+  const setHistoryTrack = useSetRecoilState(historyTrack);
   const seeTags = useRecoilValue(seedTagsState);
   useEscape(inputRef, () => setInputVisible(false));
 
@@ -40,7 +41,7 @@ export const NewSeedTag = () => {
                 value: newTag,
               } as SeedTagAction;
               const action = { [ActionType.SeedTag]: seedTagAction } as Action;
-              setAction(action);
+              setHistoryTrack(withHistory(action));
               setNewTag('');
               setInputVisible(false);
             } else if (e.key === 'Escape') {
