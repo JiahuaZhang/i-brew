@@ -62,9 +62,6 @@ export const historyTrack = selector<History>({
         currentHistory = currentHistory.previous;
         break;
       case 'redo':
-        console.group('redo')
-        console.log(currentHistory);
-        console.groupEnd()
         if (!currentHistory.next) return;
 
         set(actionState, currentHistory.forward);

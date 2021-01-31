@@ -7,7 +7,7 @@ export const SeedTagHeader = () => {
   const tags = useRecoilValue(seedTagsState);
 
   return (
-    <div style={{ fontSize: '1.25rem' }}>
+    <div style={{ fontSize: '1.25rem', margin: '0 1rem' }}>
       {tags.map((tag, index, array) => (
         <SeedTag tag={tag} tags={array} index={index} key={tag} />
       ))}
