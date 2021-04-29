@@ -10,6 +10,11 @@
       "StackName": "amplify-ibrew-dev-05746",
       "StackId": "arn:aws:cloudformation:us-east-2:710512164443:stack/amplify-ibrew-dev-05746/1d05c000-a715-11eb-81ce-06f9c8dfa786",
       "AmplifyAppId": "d32yp67k59xk6m"
+    },
+    "categories": {
+      "auth": {
+        "ibrewc8f243cb": {}
+      }
     }
   }
 }
