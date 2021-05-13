@@ -1,0 +1,23 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-ibrew-dev-02230-authRole",
+      "UnauthRoleArn": "arn:aws:iam::710512164443:role/amplify-ibrew-dev-02230-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::710512164443:role/amplify-ibrew-dev-02230-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-ibrew-dev-02230-deployment",
+      "UnauthRoleName": "amplify-ibrew-dev-02230-unauthRole",
+      "StackName": "amplify-ibrew-dev-02230",
+      "StackId": "arn:aws:cloudformation:us-east-2:710512164443:stack/amplify-ibrew-dev-02230/ac8e8200-b2d9-11eb-a275-02ea81611bbc",
+      "AmplifyAppId": "d1qyeqpi9pb9n3"
+    },
+    "categories": {
+      "auth": {
+        "ibrew8936481a": {
+          "facebookAppId": "2795117097466655",
+          "googleClientId": "445949974871-3o0r2ab9jc1lpd9po2sqek8h2vqilufe.apps.googleusercontent.com"
+        }
+      }
+    }
+  }
+}

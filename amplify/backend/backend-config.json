@@ -1,0 +1,10 @@
+{
+  "auth": {
+    "ibrew8936481a": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  }
+}
