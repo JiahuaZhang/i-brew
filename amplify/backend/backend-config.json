@@ -1,6 +1,22 @@
 {
   "auth": {
-    "ibrew8936481a": {
+    "userPoolGroups": {
+      "service": "Cognito-UserPool-Groups",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "ibrew19ce9fd719ce9fd7",
+          "attributes": [
+            "UserPoolId",
+            "AppClientIDWeb",
+            "AppClientID",
+            "IdentityPoolId"
+          ]
+        }
+      ]
+    },
+    "ibrew19ce9fd719ce9fd7": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],

@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "ibrew8936481a_identitypool_8936481a",
+    "identityPoolName": "ibrew19ce9fd7_identitypool_19ce9fd7",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "ibrew8936481a",
-    "userPoolName": "ibrew8936481a_userpool_8936481a",
+    "resourceNameTruncated": "ibrew19ce9fd7",
+    "userPoolName": "ibrew19ce9fd7_userpool_19ce9fd7",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -28,10 +28,10 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "ibrew88936481a_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "ibrew119ce9fd7_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "8936481a",
-    "resourceName": "ibrew8936481a",
+    "sharedId": "19ce9fd7",
+    "resourceName": "ibrew19ce9fd719ce9fd7",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [
@@ -46,28 +46,34 @@
         ]
     },
     "useDefault": "manual",
-    "hostedUI": true,
-    "hostedUIDomainName": "ibrew8936481a-8936481a",
-    "authProvidersUserPool": [
-        "Facebook",
-        "Google"
-    ],
-    "hostedUIProviderMeta": "[{\"ProviderName\":\"Facebook\",\"authorize_scopes\":\"email,public_profile\",\"AttributeMapping\":{\"email\":\"email\",\"username\":\"id\"}},{\"ProviderName\":\"Google\",\"authorize_scopes\":\"openid email profile\",\"AttributeMapping\":{\"email\":\"email\",\"username\":\"sub\"}}]",
-    "userPoolGroupList": [],
-    "serviceName": "Cognito",
-    "usernameCaseSensitive": false,
-    "dependsOn": [],
     "thirdPartyAuth": true,
     "authProviders": [
         "graph.facebook.com",
         "accounts.google.com"
     ],
-    "userPoolGroups": false,
+    "usernameAttributes": [
+        "email"
+    ],
+    "userPoolGroups": true,
     "adminQueries": false,
     "triggers": "{}",
+    "hostedUI": true,
+    "hostedUIDomainName": "ibrew19ce9fd7-19ce9fd7",
+    "authProvidersUserPool": [
+        "Facebook",
+        "Google"
+    ],
+    "hostedUIProviderMeta": "[{\"ProviderName\":\"Facebook\",\"authorize_scopes\":\"email,public_profile\",\"AttributeMapping\":{\"email\":\"email\",\"username\":\"id\"}},{\"ProviderName\":\"Google\",\"authorize_scopes\":\"openid email profile\",\"AttributeMapping\":{\"email\":\"email\",\"username\":\"sub\"}}]",
     "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"http://localhost:3000/\"],\"LogoutURLs\":[\"http://localhost:3000/\"]}",
+    "userPoolGroupList": [
+        "cognito"
+    ],
+    "serviceName": "Cognito",
+    "usernameCaseSensitive": false,
     "parentStack": {
         "Ref": "AWS::StackId"
     },
-    "permissions": []
+    "breakCircularDependency": true,
+    "permissions": [],
+    "dependsOn": []
 }

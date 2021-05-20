@@ -1,19 +1,19 @@
 {
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-ibrew-dev-02230-authRole",
-      "UnauthRoleArn": "arn:aws:iam::710512164443:role/amplify-ibrew-dev-02230-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::710512164443:role/amplify-ibrew-dev-02230-authRole",
+      "AuthRoleName": "amplify-ibrew-dev-05310-authRole",
+      "UnauthRoleArn": "arn:aws:iam::710512164443:role/amplify-ibrew-dev-05310-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::710512164443:role/amplify-ibrew-dev-05310-authRole",
       "Region": "us-east-2",
-      "DeploymentBucketName": "amplify-ibrew-dev-02230-deployment",
-      "UnauthRoleName": "amplify-ibrew-dev-02230-unauthRole",
-      "StackName": "amplify-ibrew-dev-02230",
-      "StackId": "arn:aws:cloudformation:us-east-2:710512164443:stack/amplify-ibrew-dev-02230/ac8e8200-b2d9-11eb-a275-02ea81611bbc",
-      "AmplifyAppId": "d1qyeqpi9pb9n3"
+      "DeploymentBucketName": "amplify-ibrew-dev-05310-deployment",
+      "UnauthRoleName": "amplify-ibrew-dev-05310-unauthRole",
+      "StackName": "amplify-ibrew-dev-05310",
+      "StackId": "arn:aws:cloudformation:us-east-2:710512164443:stack/amplify-ibrew-dev-05310/1e2a5720-b85e-11eb-85e4-0634d5bc354c",
+      "AmplifyAppId": "d5jt3ooucpj0i"
     },
     "categories": {
       "auth": {
-        "ibrew8936481a": {
+        "ibrew19ce9fd719ce9fd7": {
           "facebookAppId": "2795117097466655",
           "googleClientId": "445949974871-3o0r2ab9jc1lpd9po2sqek8h2vqilufe.apps.googleusercontent.com"
         }
