@@ -1,12 +1,12 @@
 {
-    "identityPoolName": "ibrew19ce9fd7_identitypool_19ce9fd7",
+    "identityPoolName": "ibrewea909efd_identitypool_ea909efd",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "ibrew19ce9fd7",
-    "userPoolName": "ibrew19ce9fd7_userpool_19ce9fd7",
+    "resourceNameTruncated": "ibrewea909efd",
+    "userPoolName": "ibrewea909efd_userpool_ea909efd",
     "autoVerifiedAttributes": [
         "email"
     ],
-    "mfaConfiguration": "OPTIONAL",
+    "mfaConfiguration": "OFF",
     "mfaTypes": [
         "SMS Text Message"
     ],
@@ -28,10 +28,10 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "ibrew119ce9fd7_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "ibreweea909efd_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "19ce9fd7",
-    "resourceName": "ibrew19ce9fd719ce9fd7",
+    "sharedId": "ea909efd",
+    "resourceName": "ibrewea909efd",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [
@@ -45,35 +45,20 @@
             "Arn"
         ]
     },
-    "useDefault": "manual",
-    "thirdPartyAuth": true,
-    "authProviders": [
-        "graph.facebook.com",
-        "accounts.google.com"
-    ],
+    "useDefault": "defaultSocial",
+    "hostedUI": true,
     "usernameAttributes": [
         "email"
     ],
-    "userPoolGroups": true,
-    "adminQueries": false,
-    "triggers": "{}",
-    "hostedUI": true,
-    "hostedUIDomainName": "ibrew19ce9fd7-19ce9fd7",
+    "hostedUIDomainName": "ibrewea909efd-ea909efd",
     "authProvidersUserPool": [
         "Facebook",
         "Google"
     ],
     "hostedUIProviderMeta": "[{\"ProviderName\":\"Facebook\",\"authorize_scopes\":\"email,public_profile\",\"AttributeMapping\":{\"email\":\"email\",\"username\":\"id\"}},{\"ProviderName\":\"Google\",\"authorize_scopes\":\"openid email profile\",\"AttributeMapping\":{\"email\":\"email\",\"username\":\"sub\"}}]",
     "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"http://localhost:3000/\"],\"LogoutURLs\":[\"http://localhost:3000/\"]}",
-    "userPoolGroupList": [
-        "cognito"
-    ],
+    "userPoolGroupList": [],
     "serviceName": "Cognito",
     "usernameCaseSensitive": false,
-    "parentStack": {
-        "Ref": "AWS::StackId"
-    },
-    "breakCircularDependency": true,
-    "permissions": [],
     "dependsOn": []
 }

@@ -1,13 +1,13 @@
 import { Avatar, Button, Popover } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
-import { User } from 'next-auth';
-import { signout } from 'next-auth/client';
+import { UserAttributes } from '../utils/state/amplifyUser';
+import Auth from '@aws-amplify/auth';
 
-export const Header = ({ user }: { user: User }) => {
+export const InfoHeader = ({ user }: { user: UserAttributes }) => {
   let avatar = <Avatar size='large' icon={<UserOutlined />} />;
 
-  if (user.image) {
-    avatar = <Avatar size='large' src={user.image} />;
+  if (user.picture) {
+    avatar = <Avatar size='large' src={user.picture} />;
   } else if (user.name) {
     const abbreviation = user.name.split(/\W+/).map((s) => s[0].toUpperCase());
     avatar = <Avatar size='large'>{abbreviation}</Avatar>;
@@ -19,7 +19,7 @@ export const Header = ({ user }: { user: User }) => {
         content={
           <section>
             {user.name && <p>{user.name}</p>}
-            <Button onClick={() => signout()}>Sign out</Button>
+            <Button onClick={() => Auth.signOut()}>Sign out</Button>
           </section>
         }>
         {avatar}
