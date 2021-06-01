@@ -37,7 +37,6 @@ export const useAmplifyUser = (): [CognitoUserSession, UserAttributes] => {
 
   if (userAttributes.status === 'loading') {
     Auth.currentAuthenticatedUser().then((user: CognitoUser) => {
-      console.log('initing with current authenticated user', user);
       setCurrentUser(user.getSignInUserSession());
       setUserAttributes(extractAttributes(user.getSignInUserSession()));
     }).catch(err => {

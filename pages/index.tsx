@@ -11,10 +11,7 @@ export default function Home() {
   const router = useRouter();
 
   useEffect(() => {
-    console.log(userAttirbutes, amplifyUser);
-    console.log(userAttirbutes.status !== 'loading' && !amplifyUser);
     if (userAttirbutes.status !== 'loading' && !amplifyUser) {
-      console.log('push?');
       router.push('login');
     }
   }, [amplifyUser, userAttirbutes]);

@@ -14,7 +14,7 @@ export const InfoHeader = ({ user }: { user: UserAttributes }) => {
   }
 
   return (
-    <header style={{ display: 'grid', justifyContent: 'end' }}>
+    <header style={{ display: 'grid', justifyContent: 'end', cursor: 'pointer' }}>
       <Popover
         content={
           <section>
