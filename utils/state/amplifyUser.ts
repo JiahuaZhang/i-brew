@@ -3,6 +3,7 @@ import { CognitoUserSession } from 'amazon-cognito-identity-js'
 import { Hub } from '@aws-amplify/core';
 import { useEffect, useState } from 'react';
 import { atom, useRecoilState } from 'recoil';
+import { useRouter } from 'next/router';
 
 export interface UserAttributes {
   id: string,
@@ -31,9 +32,10 @@ const extractAttributes = (session: CognitoUserSession) => {
   return { id: username, name, email, picture: pic, status: 'done' } as UserAttributes;
 };
 
-export const useAmplifyUser = (): [CognitoUserSession, UserAttributes] => {
+export const useAmplifyUser = ({ redirect } = ({ redirect: '' })) => {
   const [currentUser, setCurrentUser] = useRecoilState(amplifyUserState);
-  const [userAttributes, setUserAttributes] = useState({ status: 'loading' } as UserAttributes)
+  const [userAttributes, setUserAttributes] = useState({ status: 'loading' } as UserAttributes);
+  const router = useRouter();
 
   if (userAttributes.status === 'loading') {
     Auth.currentAuthenticatedUser().then((user: CognitoUser) => {
@@ -60,11 +62,20 @@ export const useAmplifyUser = (): [CognitoUserSession, UserAttributes] => {
           setCurrentUser(null);
           setUserAttributes(attributes => ({ ...attributes, status: 'done' }));
           return;
+        case 'customOAuthState':
+          router.push(data);
         default:
           break;
       }
     })
   }, []);
 
-  return [currentUser, userAttributes];
+  if (typeof window !== 'undefined' && userAttributes.status !== 'loading' && !currentUser && redirect) {
+    router.push({
+      pathname: redirect,
+      query: { from: router.pathname }
+    });
+  }
+
+  return { userSession: currentUser, userAttributes };
 };

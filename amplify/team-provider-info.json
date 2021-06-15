@@ -9,7 +9,8 @@
       "UnauthRoleName": "amplify-ibrew-dev-05310-unauthRole",
       "StackName": "amplify-ibrew-dev-05310",
       "StackId": "arn:aws:cloudformation:us-east-2:710512164443:stack/amplify-ibrew-dev-05310/1e2a5720-b85e-11eb-85e4-0634d5bc354c",
-      "AmplifyAppId": "d5jt3ooucpj0i"
+      "AmplifyAppId": "d5jt3ooucpj0i",
+      "AuthTriggerTemplateURL": ""
     },
     "categories": {
       "auth": {

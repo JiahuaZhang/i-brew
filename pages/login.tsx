@@ -1,5 +1,6 @@
 import Auth, { CognitoHostedUIIdentityProvider } from '@aws-amplify/auth';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React, { CSSProperties } from 'react';
 
 const buttonCSS: CSSProperties = {
@@ -17,6 +18,10 @@ const buttonCSS: CSSProperties = {
 };
 
 const Login = () => {
+  const router = useRouter();
+
+  const { from } = router.query;
+
   return (
     <main
       style={{
@@ -38,7 +43,10 @@ const Login = () => {
             background: '#4285f4',
           }}
           onClick={() =>
-            Auth.federatedSignIn({ provider: CognitoHostedUIIdentityProvider.Google })
+            Auth.federatedSignIn({
+              provider: CognitoHostedUIIdentityProvider.Google,
+              customState: from as string,
+            })
           }>
           <img src='/svg/google.svg' style={{ position: 'absolute', top: -5, left: -5 }} />
           Sign in with Google
@@ -50,7 +58,10 @@ const Login = () => {
             background: '#4267b2',
           }}
           onClick={() =>
-            Auth.federatedSignIn({ provider: CognitoHostedUIIdentityProvider.Facebook })
+            Auth.federatedSignIn({
+              provider: CognitoHostedUIIdentityProvider.Facebook,
+              customState: from as string,
+            })
           }>
           <img src='/svg/facebook.svg' style={{ position: 'absolute' }} />
           Sign in with Facebook
