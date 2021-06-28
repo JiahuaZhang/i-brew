@@ -1,34 +1,21 @@
-import { useRouter } from 'next/router';
-import { Spin } from 'antd';
-import { useEffect } from 'react';
 import { Global } from '../components/global/Global';
 import { useAmplifyUser } from '../utils/state/amplifyUser';
 import { InfoHeader } from '../components/InfoHeader';
 import { MainPanel } from '../components/MainPanel';
+import { LoadingScreen } from '../components/common/LoadingScreen';
 
 export default function Home() {
-  const [amplifyUser, userAttirbutes] = useAmplifyUser();
-  const router = useRouter();
-
-  useEffect(() => {
-    if (userAttirbutes.status !== 'loading' && !amplifyUser) {
-      router.push('login');
-    }
-  }, [amplifyUser, userAttirbutes]);
+  const { userSession, userAttributes } = useAmplifyUser({ redirect: '/login' });
 
   return (
     <div>
-      {amplifyUser && <Global />}
+      {userSession && <Global />}
 
-      {userAttirbutes.status === 'loading' && (
-        <div style={{ textAlign: 'center', marginTop: '2rem' }}>
-          <Spin size='large' />
-        </div>
-      )}
+      {userAttributes.status !== 'done' && <LoadingScreen />}
 
-      {amplifyUser && <InfoHeader user={userAttirbutes} />}
+      {userSession && <InfoHeader user={userAttributes} />}
 
-      {userAttirbutes && <MainPanel />}
+      {userAttributes && <MainPanel />}
     </div>
   );
 }

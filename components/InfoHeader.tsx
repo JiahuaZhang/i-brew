@@ -1,5 +1,5 @@
 import { Avatar, Button, Popover } from 'antd';
-import { UserOutlined } from '@ant-design/icons';
+import { SettingOutlined, UserOutlined } from '@ant-design/icons';
 import { UserAttributes } from '../utils/state/amplifyUser';
 import Auth from '@aws-amplify/auth';
 
@@ -14,8 +14,17 @@ export const InfoHeader = ({ user }: { user: UserAttributes }) => {
   }
 
   return (
-    <header style={{ display: 'grid', justifyContent: 'end', cursor: 'pointer' }}>
+    <header
+      style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(2, max-content)',
+        alignItems: 'center',
+        cursor: 'pointer',
+        justifyContent: 'space-between',
+      }}>
+      <SettingOutlined style={{ fontSize: '1.5rem', margin: 8 }} />
       <Popover
+        style={{ justifySelf: 'end' }}
         content={
           <section>
             {user.name && <p>{user.name}</p>}

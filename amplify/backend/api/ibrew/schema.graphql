@@ -1,0 +1,17 @@
+type Config @model @auth(rules: [{ allow: owner }]) {
+  id: ID!
+  locale: String
+  tagPopUpControl: String
+}
+
+type Subscription {
+  onUpdateConfigById(id: ID!): Config @aws_subscribe(mutations: ["updateConfig"])
+}
+
+type Seed @model @auth(rules: [{ allow: owner }]) {
+  id: ID!
+  tags: [String]!
+  originalTags: [String]!
+  idea: String!
+  # version: Number
+}

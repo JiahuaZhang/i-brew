@@ -10,7 +10,7 @@ export interface UserAttributes {
   name: string;
   email: string;
   picture: string;
-  status: 'loading' | 'done';
+  status: 'init' | 'synced' | 'done';
 }
 
 const amplifyUserState = atom<CognitoUserSession | null>({
@@ -34,21 +34,21 @@ const extractAttributes = (session: CognitoUserSession) => {
 
 export const useAmplifyUser = ({ redirect } = ({ redirect: '' })) => {
   const [currentUser, setCurrentUser] = useRecoilState(amplifyUserState);
-  const [userAttributes, setUserAttributes] = useState({ status: 'loading' } as UserAttributes);
+  const [userAttributes, setUserAttributes] = useState({ status: 'init' } as UserAttributes);
   const router = useRouter();
 
-  if (userAttributes.status === 'loading') {
+  if (userAttributes.status === 'init') {
     Auth.currentAuthenticatedUser().then((user: CognitoUser) => {
       setCurrentUser(user.getSignInUserSession());
       setUserAttributes(extractAttributes(user.getSignInUserSession()));
     }).catch(err => {
       console.warn('No authenticated user currently', err);
-      setUserAttributes(attributes => ({ ...attributes, status: 'done' }));
+      setUserAttributes(attributes => ({ ...attributes, status: 'synced' }));
     });
   } else if (currentUser && !currentUser.isValid()) {
     console.warn('Invalidating amplify user');
     setCurrentUser(null);
-    setUserAttributes(attributes => ({ ...attributes, status: 'done' }));
+    setUserAttributes(attributes => ({ ...attributes, status: 'synced' }));
   }
 
   useEffect(() => {
@@ -70,11 +70,13 @@ export const useAmplifyUser = ({ redirect } = ({ redirect: '' })) => {
     })
   }, []);
 
-  if (typeof window !== 'undefined' && userAttributes.status !== 'loading' && !currentUser && redirect) {
+  if (typeof window !== 'undefined' && userAttributes.status === 'synced' && !currentUser && redirect) {
     router.push({
       pathname: redirect,
       query: { from: router.pathname }
     });
+  } else if (userAttributes.status === 'synced') {
+    setUserAttributes(values => ({ ...values, status: 'done' }))
   }
 
   return { userSession: currentUser, userAttributes };
