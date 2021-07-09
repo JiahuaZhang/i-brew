@@ -1,5 +1,5 @@
 import { useRecoilValue } from 'recoil';
-import { seedTagsState } from '../../../utils/state/seed';
+import { seedTagsState } from '../../../src/utils/state/seed';
 import { NewSeedTag } from './NewSeedTag';
 import { SeedTag } from './SeedTag';
 

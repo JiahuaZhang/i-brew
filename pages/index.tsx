@@ -1,5 +1,5 @@
 import { Global } from '../components/global/Global';
-import { useAmplifyUser } from '../utils/state/amplifyUser';
+import { useAmplifyUser } from '../src/utils/state/amplifyUser';
 import { InfoHeader } from '../components/InfoHeader';
 import { MainPanel } from '../components/MainPanel';
 import { LoadingScreen } from '../components/common/LoadingScreen';

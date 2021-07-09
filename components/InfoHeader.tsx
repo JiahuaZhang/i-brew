@@ -1,9 +1,13 @@
-import { Avatar, Button, Popover } from 'antd';
 import { SettingOutlined, UserOutlined } from '@ant-design/icons';
-import { UserAttributes } from '../utils/state/amplifyUser';
 import Auth from '@aws-amplify/auth';
+import { Avatar, Button, Popover, Modal } from 'antd';
+import { useState } from 'react';
+import { ConfigTable } from '../components/config/ConfigTable';
+import { UserAttributes } from '../src/utils/state/amplifyUser';
 
 export const InfoHeader = ({ user }: { user: UserAttributes }) => {
+  const [isConfigModalVisible, setIsConfigModalVisible] = useState(false);
+
   let avatar = <Avatar size='large' icon={<UserOutlined />} />;
 
   if (user.picture) {
@@ -22,7 +26,17 @@ export const InfoHeader = ({ user }: { user: UserAttributes }) => {
         cursor: 'pointer',
         justifyContent: 'space-between',
       }}>
-      <SettingOutlined style={{ fontSize: '1.5rem', margin: 8 }} />
+      <SettingOutlined
+        style={{ fontSize: '1.5rem', margin: 8 }}
+        onClick={() => setIsConfigModalVisible(true)}
+      />
+      <Modal
+        title='⚙️ config'
+        footer={null}
+        visible={isConfigModalVisible}
+        onCancel={() => setIsConfigModalVisible(false)}>
+        <ConfigTable style={{ margin: 'auto', width: '100%' }} />
+      </Modal>
       <Popover
         style={{ justifySelf: 'end' }}
         content={

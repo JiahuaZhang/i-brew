@@ -2,9 +2,9 @@ import { CloseOutlined } from '@ant-design/icons';
 import { Input, message, Popover, Tag } from 'antd';
 import { useRef, useState } from 'react';
 import { useSetRecoilState } from 'recoil';
-import { useEscape } from '../../../utils/hook/useEscape';
-import { Action, ActionType, SeedTagAction } from '../../../utils/state/action';
-import { historyTrack, withHistory } from '../../../utils/state/history';
+import { useEscape } from '../../../src/utils/hook/useEscape';
+import { Action, ActionType, SeedTagAction } from '../../../src/utils/state/action';
+import { historyTrack, withHistory } from '../../../src/utils/state/history';
 
 interface Props {
   tag: string;

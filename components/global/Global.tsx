@@ -1,4 +1,4 @@
-import { useHotKey } from '../../utils/hook/useHotKey';
+import { useHotKey } from '../../src/utils/hook/useHotKey';
 
 export const Global = () => {
   useHotKey();

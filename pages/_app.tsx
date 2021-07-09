@@ -1,7 +1,8 @@
+import 'antd/dist/antd.min.css';
 import { Provider } from 'next-auth/client';
+import { appWithTranslation } from 'next-i18next';
 import { AppProps } from 'next/dist/next-server/lib/router/router';
 import { RecoilRoot } from 'recoil';
-import 'antd/dist/antd.min.css';
 import '../src/config/amplifyConfig';
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -14,4 +15,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default MyApp;
+export default appWithTranslation(MyApp);

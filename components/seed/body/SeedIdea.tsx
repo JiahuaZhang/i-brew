@@ -3,7 +3,7 @@
 import { jsx } from '@emotion/react';
 import { useRef } from 'react';
 import { useRecoilState } from 'recoil';
-import { seedIdeastate } from '../../../utils/state/seed';
+import { seedIdeastate } from '../../../src/utils/state/seed';
 
 export const SeedIdea = () => {
   const [seedIdea, setSeedIdea] = useRecoilState(seedIdeastate);

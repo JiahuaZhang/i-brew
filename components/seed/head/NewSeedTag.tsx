@@ -2,10 +2,10 @@ import { PlusOutlined } from '@ant-design/icons';
 import { Input, message, Tag } from 'antd';
 import React, { useRef, useState } from 'react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
-import { useEscape } from '../../../utils/hook/useEscape';
-import { Action, ActionType, SeedTagAction } from '../../../utils/state/action';
-import { historyTrack, withHistory } from '../../../utils/state/history';
-import { seedTagsState } from '../../../utils/state/seed';
+import { useEscape } from '../../../src/utils/hook/useEscape';
+import { Action, ActionType, SeedTagAction } from '../../../src/utils/state/action';
+import { historyTrack, withHistory } from '../../../src/utils/state/history';
+import { seedTagsState } from '../../../src/utils/state/seed';
 
 export const NewSeedTag = () => {
   const [newTag, setNewTag] = useState('');

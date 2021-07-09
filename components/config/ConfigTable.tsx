@@ -14,7 +14,7 @@ interface Props {
   style?: CSSProperties;
 }
 
-const defaultConfig: Config = { locale: 'english', tagPopUpControl: 'toggle' } as Config;
+const defaultConfig: Config = { locale: 'english', tagPopUpControl: 'hover' } as Config;
 
 const allConfigDetails: ConfigDetail[] = [
   {
@@ -26,12 +26,12 @@ const allConfigDetails: ConfigDetail[] = [
   {
     mapping: 'tagPopUpControl',
     description: 'Show tag option tip',
-    currentOption: 'toggle',
-    options: ['toggle', 'click'],
+    currentOption: 'hover',
+    options: ['hover', 'click'],
   },
 ];
 
-const ConfigTable = (props: Props) => {
+export const ConfigTable = (props: Props) => {
   const [configuration, setConfiguration] = useState({} as Config);
   const configurationRef = useRef(null);
 
